@@ -1,0 +1,366 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/*  Variables  */
+:root {
+  /* Colors */
+  --main-clr: #e91414;
+  --strong-dark-clr: #222;
+  --light-dark-clr: #2c2c2c;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "work sans", sans-serif, arial;
+  background-color: #222;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > * {
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+.warn-box {
+  padding: 2rem 0.5rem;
+  width: clamp(260px, 400px, 80%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translate(-50%, -80%);
+  z-index: 100;
+  color: #000;
+  border-radius: 3px;
+  background: #fff;
+  transition: 0.3s;
+  opacity: 0;
+  display: none;
+  text-align: center;
+}
+
+.warn-box.visible {
+  display: flex;
+}
+
+.warn-box .close-warn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  background-color: red;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.warn-box .close-warn:hover {
+  background-color: #c50c0c;
+}
+
+.warn-overlay {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0 0 0 / 35%);
+  z-index: 90;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.warn-overlay.visible {
+  display: block;
+}
+
+.modal-box {
+  padding: 2rem 0.5rem;
+  width: clamp(260px, 400px, 80%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translate(-50%, -80%);
+  z-index: 100;
+  color: #000;
+  border-radius: 3px;
+  background: #fff;
+  opacity: 0;
+  transition: 0.3s;
+  display: none;
+}
+
+.modal-box.visible {
+  display: flex;
+}
+
+.modal-box h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.modal-box .bell-box {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box .bell-box .bell {
+  font-size: 3rem;
+  animation: bell-animation .5s ease-in-out 0s infinite ;
+  transform-origin: center 0;
+}
+
+@keyframes bell-animation {
+  0%,
+  100% {
+    transform: rotatez(-30deg);
+  }
+  50% {
+    transform:  rotatez(30deg);
+  }
+}
+
+.modal-box > * {
+  margin: 0.5rem 0;
+}
+
+.modal-box .exit {
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  background-color: green;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0 0 0 / 35%);
+  z-index: 90;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.visible {
+  display: block;
+}
+
+video {
+  display: none;
+}
+
+.heading h1 {
+  font-size: clamp(2rem, 4vw + 1rem, 4rem);
+}
+
+.heading h1:before {
+  content: "";
+}
+
+.heading h1:after {
+  content: "";
+}
+
+form.input-info {
+  display: flex;
+  justify-content: center;
+}
+
+.input-info #time {
+  flex: 1 1;
+  color: #fff;
+}
+
+.input-info #submit-time {
+  margin: 0 16px;
+  cursor: pointer;
+  color: var(--main-clr);
+  text-shadow: 0 0 3px var(--main-clr);
+}
+
+.input-info #time,
+.input-info #submit-time {
+  padding: 1rem 1.25rem;
+  border: 5px solid var(--strong-dark-clr);
+  background-color: var(--strong-dark-clr);
+  box-shadow: -4px -4px 10px var(--light-dark-clr), 4px 4px 10px #161616;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 440px) {
+  .input-info #submit-time {
+    margin: 0 0 0 4px;
+  }
+  .input-info #time,
+  .input-info #submit-time {
+    padding: 1rem 0.25rem;
+  }
+}
+
+.input-info #time:focus {
+  outline: none;
+}
+
+.input-info #submit-time:active {
+  box-shadow: inset -4px -4px 10px var(--light-dark-clr),
+    inset 4px 4px 10px #161616;
+}
+
+.clock-box {
+  width: 400px;
+  height: 400px;
+  background-color: var(--strong-dark-clr);
+  border: 3px solid var(--strong-dark-clr);
+  border-radius: 50%;
+  box-shadow: -4px -4px 10px var(--light-dark-clr), 4px 4px 10px #161616,
+    inset -4px -4px 10px var(--light-dark-clr), inset 4px 4px 10px #161616;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 440px) {
+  .clock-box {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.clock-box .time-indicator {
+  width: 15px;
+  height: 35%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  transform-origin: bottom;
+  background-color: var(--strong-dark-clr);
+  box-shadow: -4px -4px 10px var(--light-dark-clr), 4px 4px 10px #161616;
+  border-radius: 10px;
+  transition: 0.1s transform;
+  z-index: 10;
+}
+
+@media (max-width: 440px) {
+  .clock-box .time-indicator {
+    height: 80px;
+  }
+}
+
+.clock-box .line {
+  position: absolute;
+  width: 35px;
+  height: 3px;
+  background-color: var(--main-clr);
+  border-radius: 4px;
+  color: var(--main-clr);
+  box-shadow: 0 0 3px var(--main-clr);
+  text-shadow: 0 0 3px var(--main-clr);
+}
+
+.clock-box .line .time-stamp-one {
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  transform: rotate(270deg);
+}
+
+.clock-box .line .time-stamp-two {
+  position: absolute;
+  top: -8px;
+  right: 40px;
+}
+
+.clock-box .line .time-stamp-three {
+  position: absolute;
+  top: -8px;
+  right: 40px;
+  transform: rotate(270deg);
+}
+
+.clock-box .line .time-stamp-four {
+  position: absolute;
+  top: -8px;
+  right: -25px;
+}
+
+.clock-box .zero-min {
+  top: 15px;
+  left: 50%;
+  transform: translatex(-50%) rotate(90deg);
+}
+
+.clock-box .fiften-min {
+  top: 50%;
+  right: 0;
+}
+
+.clock-box .thirty-min {
+  bottom: 15px;
+  left: 50%;
+  transform: translatex(-50%) rotate(90deg);
+}
+
+.clock-box .fourty-five-min {
+  top: 50%;
+  left: 0;
+}
+
+.clock-box .middle-cirle {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  background-color: var(--strong-dark-clr);
+  box-shadow: -4px 0px 10px var(--light-dark-clr), 4px 4px 10px #161616;
+  border-radius: 50%;
+  z-index: 15;
+}

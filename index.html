@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Pomodro Timer App</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- JS -->
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+  <section class="container">
+    <!-- Warn Box -->
+    <div class="warn-box">
+      <h2>Please Enter A valid value in minutes</h2>
+      <button class="close-warn">&times</button>
+    </div>
+    <div class="warn-overlay"></div>
+    <!-- alarm Modal  Box -->
+    <div class="modal-box">
+      <h2>Your session has ended</h2>
+      <div class="bell-box">
+        <span class="far fa-bell bell"></span>
+      </div>
+      <button class="exit">Ok</button>
+    </div>
+    <div class="modal-overlay"></div>
+    <!-- Alarm song -->
+    <video class="alarm-song" src="./alarm song/twenty one pilots-heatheans.mp4" ></video>
+    <!-- heading -->
+    <div class="heading">
+      <h1>Pomodoro Timer</h1>
+    </div>
+    <!-- input field -->
+    <form action="" class="input-info">
+      <input type="number" name="time" id="time" placeholder="Time In Minutes" min="0">
+      <button id="submit-time" class="submit-time">Start</button>
+    </form>
+    <!-- clock -->
+    <div class="clock-box">
+      <div class="clock-cirle">
+        <div class="time-indicator"></div>
+        <span class="middle-cirle"></span>
+        <span class="line zero-min">
+          <div class="time-stamp-one">0</div>
+        </span>
+        <span class="line fiften-min">
+          <div class="time-stamp-two">15</div>
+        </span>
+        <span class="line thirty-min">
+          <div class="time-stamp-three">30</div>
+        </span>
+        <span class="line fourty-five-min">
+          <div class="time-stamp-four">45</div>
+        </span>
+        </div>
+    </div>
+  </section>
+</body>
+</html>
